@@ -1,0 +1,35 @@
+{
+  "name": "commandit",
+  "private": false,
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/cmdit.cjs",
+  "module": "./dist/cmdit.mjs",
+  "types": "./dist/cmdit.d.cts",
+  "exports": {
+    "require": {
+      "types": "./dist/cmdit.d.cts",
+      "default": "./dist/cmdit.cjs"
+    },
+    "import": {
+      "types": "./dist/cmdit.d.mts",
+      "default": "./dist/cmdit.mjs"
+    }
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "execa": "^8.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.6",
+    "pkgroll": "^1.11.0",
+    "typescript": "^5.1.6"
+  },
+  "scripts": {
+    "build": "pkgroll",
+    "release": "npm run example && npm run build && npm publish",
+    "example": "npx tsx ./examples/interactive.test.ts"
+  }
+}
